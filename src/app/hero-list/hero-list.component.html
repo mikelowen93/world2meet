@@ -1,0 +1,9 @@
+<div class="hero-list">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar por nombre...">
+    <!-- En el componente, heroes$ es un observable que contendrá la lista de héroes obtenida del servicio. -->
+    <button (click)="editHero(hero.id)" *ngFor="let hero of heroes$ | async">
+      {{ hero.name | titlecase }}
+      <button (click)="editHero(hero.id)">Editar</button>
+      <button (click)="deleteHero(hero.id)">Borrar</button>
+    </button>
+  </div>  
