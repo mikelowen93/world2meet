@@ -1,0 +1,34 @@
+// Estilos para el encabezado
+header {
+    background-color: #333; // Color de fondo oscuro
+    color: #fff; // Color del texto blanco
+    padding: 20px; // Espaciado interno
+    font-size: 1.5rem; // Tamaño de fuente grande
+    font-weight: bold; // Texto en negrita
+  }
+  
+  // Estilos para el área principal
+  main {
+    padding: 20px; // Espaciado interno
+  }
+  
+  // Estilos específicos para los enlaces de navegación
+  nav {
+    ul {
+      list-style-type: none; // Quita los marcadores de lista
+      padding: 0; // Quita el espacio interior
+      margin: 0; // Quita el margen
+      display: flex; // Flexbox para alinear los enlaces horizontalmente
+      li {
+        margin-right: 20px; // Espacio entre elementos de la lista
+        a {
+          color: #fff; // Color del texto blanco
+          text-decoration: none; // Quita el subrayado del enlace
+          &:hover {
+            text-decoration: underline; // Subrayado al pasar el mouse
+          }
+        }
+      }
+    }
+  }
+  

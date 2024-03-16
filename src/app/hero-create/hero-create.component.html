@@ -1,6 +1,7 @@
 <div class="hero-create">
-    <h2>Crear nuevo héroe</h2>
-    <!-- Aquí colocarías el formulario para crear un nuevo héroe -->
-    <input matInput placeholder="Nombre" [(ngModel)]="hero.name" name="name" required>
-    <button (click)="createHero()">Crear héroe</button>
-  </div>
+  <h2>Crear nuevo héroe</h2>
+  <form [formGroup]="newHeroForm" (ngSubmit)="createHero()">
+    <input matInput formControlName="name" placeholder="Nombre" required>
+    <button type="submit" [disabled]="!newHeroForm.valid">Crear héroe</button>
+  </form>
+</div>

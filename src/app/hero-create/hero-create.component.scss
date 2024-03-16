@@ -1,0 +1,46 @@
+.hero-create {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+  
+    input {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+  
+      &:focus {
+        outline: none;
+        border-color: dodgerblue;
+        box-shadow: 0 0 5px dodgerblue;
+      }
+    }
+  
+    button {
+      padding: 10px 20px;
+      background-color: dodgerblue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #007bff;
+      }
+  
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  

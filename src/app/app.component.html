@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<header>
+    <!-- Aquí puedes agregar la barra de navegación -->
+    <nav>
+      <ul>
+        <li><a routerLink="/heroes" routerLinkActive="active">Listado de Héroes</a></li>
+        <li><a routerLink="/create" routerLinkActive="active">Crear Héroe</a></li>
+        <!-- Puedes agregar más enlaces de navegación según sea necesario -->
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <!-- Aquí se mostrarán los componentes en función de la ruta actual -->
+    <router-outlet></router-outlet>
+  </main>
