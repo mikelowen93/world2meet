@@ -12,10 +12,11 @@ import { HeroService } from '../hero.service';
 export class HeroCreateComponent {
   newHeroForm: FormGroup;
   hero: Hero = { id: 0, name: '' }; // Define hero como un objeto de tipo Hero
+  minCharsRequired: number = 4; // Definir el mínimo de caracteres requerido
 
   constructor(private fb: FormBuilder, private heroService: HeroService, private router: Router) {
     this.newHeroForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]]
+      name: ['', [Validators.required, Validators.minLength(this.minCharsRequired)]]
       // Agrega más campos y validadores según sea necesario
     });
   }

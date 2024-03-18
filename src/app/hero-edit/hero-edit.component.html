@@ -1,4 +1,5 @@
 <div class="hero-edit">
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     <div *ngIf="hero$ | async as hero">
       <h2>Editando {{ hero.name }}</h2>
       <!-- Aquí colocarías los campos de edición del héroe -->

@@ -1,7 +1,12 @@
 <div class="hero-create">
   <h2>Crear nuevo héroe</h2>
   <form [formGroup]="newHeroForm" (ngSubmit)="createHero()">
-    <input matInput formControlName="name" placeholder="Nombre" required>
+    <mat-form-field>
+      <input matInput formControlName="name" placeholder="Nombre">
+      <mat-error *ngIf="newHeroForm.get('name')?.invalid && newHeroForm.get('name')?.touched">
+        El nombre es requerido y debe tener al menos {{ minCharsRequired }} caracteres.
+      </mat-error>
+    </mat-form-field>
     <button type="submit" [disabled]="!newHeroForm.valid">Crear héroe</button>
   </form>
 </div>

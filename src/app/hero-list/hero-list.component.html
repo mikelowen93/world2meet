@@ -4,8 +4,10 @@
   <ng-container *ngFor="let hero of heroes$ | async">
     <div class="hero-item">
       {{ hero.name | titlecase }}
-      <button class="edit-btn" (click)="editHero(hero.id)">Editar</button>
       <button class="delete-btn" (click)="deleteHero(hero.id)">Borrar</button>
+      <button class="edit-btn" (click)="editHero(hero.id)">Editar</button>
     </div>
   </ng-container>
+  <!-- Botón para ir a la vista de creación de héroe -->
+  <button routerLink="/create" routerLinkActive="active">Crear nuevo héroe</button>
 </div>

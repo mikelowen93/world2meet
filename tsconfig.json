@@ -20,8 +20,10 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "lib": [
-      "ES2022",
-      "dom"
+      "ES2018",
+      "dom",
+      "esnext.asynciterable", 
+      "scripthost"
     ]
   },
   "angularCompilerOptions": {
