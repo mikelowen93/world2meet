@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Hero } from '../hero.model';
 import { HeroService } from '../hero.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-hero-list',
@@ -25,12 +26,15 @@ export class HeroListComponent implements OnInit {
   }
 
   loadHeroes(): void {
-    this.loading = true; // Activar el loader
-    this.heroes$ = this.heroService.getHeroes();
+    this.loading = true;
+    this.heroes$ = this.heroService.getHeroes().pipe(
+      map(heroes => heroes.filter(hero => hero.name.toLowerCase().includes(this.searchTerm.toLowerCase())))
+    );
     this.heroes$.subscribe(() => {
-      this.loading = false; // Desactivar el loader cuando se carguen los datos
+      this.loading = false;
     });
   }
+  
 
   editHero(id: number): void {
     this.router.navigate(['/heroes/edit', id]);
