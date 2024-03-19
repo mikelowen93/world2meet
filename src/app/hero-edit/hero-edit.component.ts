@@ -13,6 +13,7 @@ import { HeroService } from '../hero.service';
 export class HeroEditComponent implements OnInit {
   hero$: Observable<Hero> | undefined;
   heroId: number | undefined;
+  errorMessage: string | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +30,15 @@ export class HeroEditComponent implements OnInit {
         return this.heroService.getHero(this.heroId);
       })
     );
+  // Manejar el caso en el que el héroe con el ID proporcionado no existe
+  this.hero$.subscribe(
+    () => {},
+    error => {
+      this.errorMessage = `El héroe con ID ${this.heroId} no existe`;
+    }
+  );
+  
+  
   }
 
   saveChanges(hero: Hero): void {

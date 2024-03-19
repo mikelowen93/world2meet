@@ -1,9 +1,14 @@
 <div class="hero-list">
-    <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar por nombre...">
-    <!-- En el componente, heroes$ es un observable que contendrá la lista de héroes obtenida del servicio. -->
-    <button (click)="editHero(hero.id)" *ngFor="let hero of heroes$ | async">
+  <h2>Listado de héroes</h2>
+  <app-loader *ngIf="loading"></app-loader>
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar por nombre..." (input)="loadHeroes()">
+  <ng-container *ngFor="let hero of heroes$ | async">
+    <div class="hero-item">
       {{ hero.name | titlecase }}
-      <button (click)="editHero(hero.id)">Editar</button>
-      <button (click)="deleteHero(hero.id)">Borrar</button>
-    </button>
-  </div>  
+      <button class="delete-btn" (click)="deleteHero(hero.id)">Borrar</button>
+      <button class="edit-btn" (click)="editHero(hero.id)">Editar</button>
+    </div>
+  </ng-container>
+  <!-- Botón para ir a la vista de creación de héroe -->
+  <button routerLink="/create" routerLinkActive="active">Crear nuevo héroe</button>
+</div>

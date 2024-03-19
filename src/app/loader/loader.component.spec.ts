@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HeroEditComponent } from './hero-edit.component';
+import { LoaderComponent } from './loader.component';
 
-describe('HeroEditComponent', () => {
-  let component: HeroEditComponent;
-  let fixture: ComponentFixture<HeroEditComponent>;
+describe('LoaderComponent', () => {
+  let component: LoaderComponent;
+  let fixture: ComponentFixture<LoaderComponent>;
 
   // Configuración antes de cada prueba
   beforeEach(() => {
     // Configurar el módulo de pruebas
     TestBed.configureTestingModule({
-      declarations: [HeroEditComponent] // Declarar el componente bajo prueba
+      declarations: [LoaderComponent] // Declarar el componente bajo prueba
     });
     // Crear el componente y obtener el fixture
-    fixture = TestBed.createComponent(HeroEditComponent);
+    fixture = TestBed.createComponent(LoaderComponent);
     component = fixture.componentInstance;
     // Detectar cambios en el componente
     fixture.detectChanges();

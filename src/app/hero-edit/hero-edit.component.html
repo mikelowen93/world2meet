@@ -1,7 +1,9 @@
 <div class="hero-edit">
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     <div *ngIf="hero$ | async as hero">
       <h2>Editando {{ hero.name }}</h2>
       <!-- Aquí colocarías los campos de edición del héroe -->
+      <input type="text" [(ngModel)]="hero.name" placeholder="Nombre">
       <button (click)="saveChanges(hero)">Guardar cambios</button>
     </div>
   </div>
