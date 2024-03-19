@@ -45,4 +45,4 @@ He asumido que el código estará bien tipado utilizando TypeScript, lo que prop
 
 ## Preparación para el crecimiento futuro: 
 
-He tenido en cuenta la posibilidad de que el proyecto crezca en el futuro, por lo que he estructurado el código de manera modular y escalable. Esto significa que los componentes y servicios están diseñados para ser reutilizables y fáciles de extender, y el proyecto está organizado de manera que sea fácil agregar nuevas características o funcionalidades. -->
+He tenido en cuenta la posibilidad de que el proyecto crezca en el futuro, por lo que he estructurado el código de manera modular y escalable. Esto significa que los componentes y servicios están diseñados para ser reutilizables y fáciles de extender, y el proyecto está organizado de manera que sea fácil agregar nuevas características o funcionalidades.
