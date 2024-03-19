@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroEditComponent } from './hero-edit/hero-edit.component';
 import { HeroCreateComponent } from './hero-create/hero-create.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HeroCreateComponent } from './hero-create/hero-create.component';
     AppComponent,
     HeroListComponent,
     HeroEditComponent,
-    HeroCreateComponent
+    HeroCreateComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

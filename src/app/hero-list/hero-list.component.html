@@ -1,5 +1,6 @@
 <div class="hero-list">
   <h2>Listado de héroes</h2>
+  <app-loader *ngIf="loading"></app-loader>
   <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar por nombre..." (input)="loadHeroes()">
   <ng-container *ngFor="let hero of heroes$ | async">
     <div class="hero-item">

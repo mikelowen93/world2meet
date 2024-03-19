@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable,of, timer } from 'rxjs';
 import { Hero } from '../hero.model';
 import { HeroService } from '../hero.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { map } from 'rxjs/operators';
+import { delay, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-hero-list',
@@ -26,15 +26,25 @@ export class HeroListComponent implements OnInit {
   }
 
   loadHeroes(): void {
-    this.loading = true;
-    this.heroes$ = this.heroService.getHeroes().pipe(
-      map(heroes => heroes.filter(hero => hero.name.toLowerCase().includes(this.searchTerm.toLowerCase())))
-    );
-    this.heroes$.subscribe(() => {
-      this.loading = false;
-    });
-  }
-  
+    // Activar el loader solo al principio de la carga de la vista
+    if (!this.loading) {
+        this.loading = true;
+
+        timer(300).pipe(
+            switchMap(() => this.heroService.getHeroes()),
+            delay(30) // Simula un retraso adicional para mostrar el loader
+        ).subscribe({
+            next: (heroes) => {
+                this.heroes$ = of(heroes.filter(hero => hero.name.toLowerCase().includes(this.searchTerm.toLowerCase())));
+                this.loading = false; // Desactivar el loader después de cargar los héroes
+            },
+            error: (error) => {
+                console.error('Error al cargar los héroes:', error);
+                this.loading = false; // Desactivar el loader en caso de error
+            }
+        });
+    }
+}
 
   editHero(id: number): void {
     this.router.navigate(['/heroes/edit', id]);
